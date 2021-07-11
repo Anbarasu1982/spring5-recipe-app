@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Home</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container-fluid" style="margin-top: 20px;">
+        <div class="row justify-content-center">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header bg-primary text-light">
+                        <h1 class="card-title">My Recipes!!!</h1>
+                    </div>
+                </div>
+                <div class="card-body">
+                        <div class="table-responsive" th:if="${not #lists.isEmpty(recipes)}">
+                            <table class="table table-hover">
+                                <thead class="thead-inverse">
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Description</th>
+                                </tr>
+                                </thead>
+                                <tr th:remove="all">
+                                    <td th:text="${recipe.id}">1234</td>
+                                    <td th:text="${recipe.description}">Tasty Recipe 1234</td>
+                                </tr>
+                                <tr th:remove="all">
+                                    <td th:text="${recipe.id}">2345</td>
+                                    <td th:text="${recipe.description}">Tasty Recipe 2345</td>
+                                </tr>
+                                <tr th:each="recipe : ${recipes}">
+                                    <td th:text="${recipe.id}">3456</td>
+                                    <td th:text="${recipe.description}">Tasty Recipe 3456</td>
+                                </tr>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
